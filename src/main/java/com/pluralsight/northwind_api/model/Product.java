@@ -39,6 +39,10 @@ public class Product {
     @Column(name = "Discontinued")
     private Boolean discontinued;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CategoryID",insertable = false, updatable = false)
+    private Category category;
+
     public Long getProductId() {
         return productId;
     }
@@ -118,4 +122,13 @@ public class Product {
     public void setDiscontinued(Boolean discontinued) {
         this.discontinued = discontinued;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
+
